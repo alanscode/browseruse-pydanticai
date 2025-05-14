@@ -15,7 +15,7 @@ server = MCPServerStdio(
         '/c',
         'npx',
         '-y',
-        '@browsermcp/mcp@latest'
+        '@browsermcp/mcp'
     ]
 )
 
@@ -34,7 +34,7 @@ agent = Agent(
 
 async def main():
     async with agent.run_mcp_servers():
-        result = await agent.run('goto https://voice.google.com/u/0/messages, find the previous message history for "iphone". send the message "hello world" to iphone. Continue to check the page every 2 minutes for responses and complete any requests made from iphone')
+        result = await agent.run('goto https://voice.google.com/u/0/messages, find the previous message history for "iphone". check for new messages and try to complete any and all tasks that are requested by iphone.')
     print(result.output)
 
 if __name__ == "__main__":
